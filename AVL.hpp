@@ -2,6 +2,7 @@
 #include "nodoAVL.hpp"
 #include <list>
 
+<<<<<<< HEAD
 template <class T>
 class AVL{
 
@@ -23,27 +24,65 @@ class AVL{
 
 	nodoAVL<T>* buscar(T clave, nodoAVL<T>* nodo);
 
+=======
+
+using namespace std;
+
+template <class T>
+class AVL{
+    
+    private:
+        nodoAVL<T>* raiz_;
+        
+    public:
+    
+    AVL(nodoAVL<T>* nodo): raiz_(nodo){};
+
+	~AVL() {};
+	
+	nodoAVL<T>* get_raiz();
+	
+	nodoAVL<T>* buscar(T clave, nodoAVL<T>* nodo);
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	void insertar(T clave);
 	void insertar_bal(nodoAVL<T>* &nodo,nodoAVL<T>* nuevo, bool& crece);
 	void insert_re_balancea_izda(nodoAVL<T>* &nodo, bool& crece);
 	void insert_re_balancea_dcha(nodoAVL<T>* &nodo,bool& crece);
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	void eliminar(T clave);
 	void eliminarRama(nodoAVL<T>* &nodo, T clave, bool& decrece);
 	void eliminar_re_balancea_izda(nodoAVL<T>* &nodo,bool& decrece);
 	void eliminar_re_balancea_dcha(nodoAVL<T>* &nodo,bool& decrece);
+<<<<<<< HEAD
 
 	void sustituye(nodoAVL<T>* &eliminado,nodoAVL<T>* &sust,bool &decrece);
 
+=======
+	
+	void sustituye(nodoAVL<T>* &eliminado,nodoAVL<T>* &sust,bool &decrece);
+		
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	void rotacion_DD(nodoAVL<T>* &nodo);
 	void rotacion_II(nodoAVL<T>* &nodo);
 	void rotacion_DI(nodoAVL<T>* &nodo);
 	void rotacion_ID(nodoAVL<T>* &nodo);
+<<<<<<< HEAD
 
 
 	std::ostream& mostrarAVL(std::ostream& out);
 
 
+=======
+	
+	
+	void mostrarAVL();
+    
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 };
 
 
@@ -65,7 +104,11 @@ nodoAVL<T>* AVL<T>::buscar(T clave, nodoAVL<T>* nodo)
 }
 
 template<class T>
+<<<<<<< HEAD
 std::ostream& AVL<T>::mostrarAVL(std::ostream& out)
+=======
+void AVL<T>::mostrarAVL()
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 {
 
 	list<nodoAVL<T>* > lista1;
@@ -74,19 +117,33 @@ std::ostream& AVL<T>::mostrarAVL(std::ostream& out)
 	int nivel=0;
 	nodoAVL<T>* aux;
 	nodoAVL<T>* nulo = new nodoAVL<T>(NULL);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	lista1.push_front(raiz_);
 
 	while((lista1.empty()== 0) && (lista2.empty()==1))
 	{
+<<<<<<< HEAD
 		out << "Nivel: " << nivel << "  ";
+=======
+		std::cout << "Nivel: " << nivel << "  ";
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 		while(lista1.empty()==0)
 		{
 			aux = lista1.front();
 			lista1.pop_front();
+<<<<<<< HEAD
 			if( aux -> get_clave() == 0 ) out << "[.]" << " ";
 			else out << "[ "<< aux -> get_clave() << " ]" << " ";
 
+=======
+			if( aux -> get_clave() == 0 ) std::cout << "[.]" << " ";
+			else std::cout << "[ "<< aux -> get_clave() << " ]" << " ";
+			
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 			if( aux -> get_izquierdo() != NULL)	lista2.push_front( aux -> get_izquierdo());
 			else lista2.push_front(nulo);
 
@@ -96,6 +153,7 @@ std::ostream& AVL<T>::mostrarAVL(std::ostream& out)
 		int contador = -1;
 		while((lista2.empty()==0)&&(contador<nivel*2)){
 			if(lista2.front() -> get_clave() == 0) contador++;
+<<<<<<< HEAD
 
 			lista1.push_front(lista2.front());
 			lista2.pop_front();
@@ -115,6 +173,27 @@ std::ostream& AVL<T>::mostrarAVL(std::ostream& out)
 template<class T>
 void AVL<T>::insertar(T clave){
 
+=======
+			
+			lista1.push_front(lista2.front());
+			lista2.pop_front();
+		}
+		
+		if(contador >nivel*2){
+			lista2.clear();
+			lista1.clear();
+		}	
+		std::cout << std::endl;
+		nivel++;	
+	}	
+
+ 
+}    
+
+template<class T>
+void AVL<T>::insertar(T clave){
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	nodoAVL<T> * nuevo= new nodoAVL<T>(clave,NULL,NULL);
 	bool crece=false;
 	insertar_bal(raiz_,nuevo,crece);
@@ -128,7 +207,11 @@ void AVL<T>::insertar_bal(nodoAVL<T>* &nodo,nodoAVL<T>* nuevo, bool& crece){
 		nodo=nuevo;
 		crece=true;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 
 	else if (nuevo->get_clave() < nodo->get_clave())
 	{
@@ -144,11 +227,16 @@ void AVL<T>::insertar_bal(nodoAVL<T>* &nodo,nodoAVL<T>* nuevo, bool& crece){
 		if (crece)
 			insert_re_balancea_dcha(nodo,crece);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	if(ACUMULADOR>MAXIMO) MAXIMO = ACUMULADOR;
 	if(ACUMULADOR<MINIMO) MINIMO = ACUMULADOR;
 }
 
+<<<<<<< HEAD
 
 template<class T>
 void AVL<T>::balanceo_1(nodoAVL<T>* &nodo, bool& crece)
@@ -162,6 +250,8 @@ void AVL<T>::balanceo_1(nodoAVL<T>* &nodo, bool& crece)
   crece=false;
 }
 
+=======
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 template<class T>
 void AVL<T>::insert_re_balancea_izda(nodoAVL<T>* &nodo, bool& crece)
 {
@@ -172,15 +262,25 @@ void AVL<T>::insert_re_balancea_izda(nodoAVL<T>* &nodo, bool& crece)
 				 break;
 		case 0: nodo->set_bal(1);
 				break;
+<<<<<<< HEAD
 		case 1:
 			balanceo_1(nodo,crece);
 			break;
 		default:
 				break;
+=======
+		case 1: nodoAVL<T>* nodo1=nodo->get_izquierdo();
+				if(nodo1->get_bal()==1)
+					rotacion_II(nodo);
+				else
+					rotacion_ID(nodo);
+				crece=false;
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	}
 }
 
 template<class T>
+<<<<<<< HEAD
 void AVL<T>::balanceo_menos1(nodoAVL<T>* &nodo,bool& crece)
 {
 	nodoAVL<T>* nodo1=nodo->get_derecho();
@@ -192,6 +292,8 @@ void AVL<T>::balanceo_menos1(nodoAVL<T>* &nodo,bool& crece)
 }
 
 template<class T>
+=======
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 void AVL<T>::insert_re_balancea_dcha(nodoAVL<T>* &nodo,bool& crece)
 {
 	switch (nodo->get_bal())
@@ -201,11 +303,20 @@ void AVL<T>::insert_re_balancea_dcha(nodoAVL<T>* &nodo,bool& crece)
 				break;
 		case 0: nodo->set_bal(-1);
 				break;
+<<<<<<< HEAD
 		case -1:
 			 balanceo_menos1(nodo,crece);
 			 break;
 		default:
 			break;
+=======
+		case -1: nodoAVL<T>* nodo1=nodo->get_derecho();
+				 if(nodo1->get_bal()==-1)
+				 	rotacion_DD(nodo);
+				 else
+				 	rotacion_DI(nodo);
+				 crece=false;
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	}
 }
 
@@ -256,7 +367,11 @@ void AVL<T>::eliminarRama(nodoAVL<T>* &nodo,T clave,bool& decrece)
 		}
 		delete eliminado;
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	if(ACUMULADOR>MAXIMO) MAXIMO = ACUMULADOR;
 	if(ACUMULADOR<MINIMO) MINIMO = ACUMULADOR;
 }
@@ -280,6 +395,7 @@ void AVL<T>::sustituye(nodoAVL<T>* &eliminado,nodoAVL<T>* &sust, bool &decrece)
 	}
 }
 
+<<<<<<< HEAD
 template<class T>
 void AVL<T>::elimina_balanceo_menos_1(nodoAVL<T>* &nodo,bool& decrece)
 {
@@ -293,19 +409,39 @@ void AVL<T>::elimina_balanceo_menos_1(nodoAVL<T>* &nodo,bool& decrece)
 			 	rotacion_DD(nodo);
 			 }
 }
+=======
+
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 template<class T>
 void AVL<T>::eliminar_re_balancea_izda(nodoAVL<T>* &nodo,bool& decrece)
 {
 	switch(nodo->get_bal())
 	{
+<<<<<<< HEAD
 		case -1:
 				elimina_balanceo_menos_1(nodo,decrece);
 				break;
+=======
+		case -1: 
+		{
+			nodoAVL<T>* nodo1=nodo->get_derecho();
+				 if(nodo1->get_bal() > 0)
+				 	rotacion_DI(nodo);
+				 else
+				 {
+				 	if(nodo1->get_bal()==0)
+				 		decrece=false;
+				 	rotacion_DD(nodo);
+				 }
+				 break;
+		}
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 		case 0: nodo->set_bal(-1);
 				decrece=false;
 				break;
 		case 1: nodo->set_bal(0);
 				break;
+<<<<<<< HEAD
 
 		default:
 				break;
@@ -325,23 +461,47 @@ void AVL<T>::eliminar_balanceo_1(nodoAVL<T>* &nodo,bool& decrece)
 				rotacion_II(nodo);
 			}
 }
+=======
+	}
+}
+
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 
 template<class T>
 void AVL<T>::eliminar_re_balancea_dcha(nodoAVL<T>* &nodo,bool& decrece)
 {
 	switch(nodo->get_bal())
 	{
+<<<<<<< HEAD
 		case 1:
 			eliminar_balanceo_1(nodo,decrece);
 			break;
+=======
+		case 1: 
+		{
+				nodoAVL<T>* nodo1=nodo->get_izquierdo();
+				if(nodo1->get_bal() < 0)
+					rotacion_ID(nodo);
+				else
+				{
+					if(nodo1->get_bal()== 0)
+						decrece=false;
+					rotacion_II(nodo);
+				}
+				break;
+		}
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 		case 0: nodo->set_bal(1);
 				decrece=false;
 				break;
 		case -1: nodo->set_bal(0);
 				 break;
+<<<<<<< HEAD
 
 		default:
 				break;
+=======
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 	}
 }
 
@@ -427,4 +587,8 @@ void AVL<T>::rotacion_II(nodoAVL<T>* &nodo)
 		nodo1->set_bal(-1);
 	}
 	nodo=nodo1;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
