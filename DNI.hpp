@@ -12,11 +12,7 @@ private:
 
 public:
 	DNI(void): n_(-1) {}
-<<<<<<< HEAD
 	explicit DNI(int n): n_(n) {}
-=======
-	DNI(int n): n_(n) {}
->>>>>>> ee6504d62de0d50d26a772704193fd2eacbab034
 
 	int n(void) const
 	{
@@ -87,5 +83,6 @@ public:
 	{
 		return a.n()<n;
 	}
+
 #endif 
 
