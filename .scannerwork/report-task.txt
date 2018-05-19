@@ -1,0 +1,7 @@
+organization=alu0100763478-github
+projectKey=practica07definitivarossiel
+serverUrl=https://sonarcloud.io
+serverVersion=7.2.0.12086
+dashboardUrl=https://sonarcloud.io/dashboard/index/practica07definitivarossiel
+ceTaskId=AWN4kjAG1cvxeeEnj5rj
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWN4kjAG1cvxeeEnj5rj
